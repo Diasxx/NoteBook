@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        h1 {
+            margin: 0;
+            font-weight: 700;
+            font-size: 2.5rem;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        input[type="text"], textarea {
+            width: 97.5%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #btnadd {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            border-radius: 5px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 20px;
+            margin: 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+    <title>My Notebook</title>
+</head>
+<body>
+<header>
+    <h1>My Notebook</h1>
+</header>
+<div class="container">
+    <form id="note-form" th:action="@{'/updatenote'}" method="post">
+        <input type="hidden" name="id" th:value="${note.id}">
+        <input type="text" id="note-title" placeholder="Title" name="note_title" th:value="${note.title}">
+        <input  type="text" id="note-content" name="note_content" th:value="${note.text}">
+        <button type="submit" id="btnadd" style="background-color: forestgreen">Save</button>
+    </form>
+</div>
+</body>
+</html>
