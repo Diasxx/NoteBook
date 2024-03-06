@@ -3,19 +3,17 @@ package com.example.demo.services.impl;
 import com.example.demo.entities.Notes;
 import com.example.demo.repositories.NoteRepository;
 import com.example.demo.services.NoteService;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@AllArgsConstructor
-@NoArgsConstructor
 @Service
 public class NotesServiceImpl implements NoteService {
 
-    @Autowired
-    private NoteRepository noteRepository;
+    private final NoteRepository noteRepository;
+
+    public NotesServiceImpl(NoteRepository noteRepository) {
+        this.noteRepository = noteRepository;
+    }
 
     @Override
     public Notes addNote(Notes note) {
